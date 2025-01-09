@@ -16,7 +16,7 @@ export class Pattern {
   constructor() {
     this.steps = {
       kick: Array(Pattern.SIZE).fill(false),
-      hat: Array(Pattern.SIZE).fill(false),
+      "hi-hat": Array(Pattern.SIZE).fill(false),
       snare: Array(Pattern.SIZE).fill(false),
     };
     this._tempo = 60000 / DEFAULT_BPM / 4;

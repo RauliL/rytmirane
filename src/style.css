@@ -31,8 +31,25 @@
     var(--red-on-gradient-end) 100%
   );
 
-  --step-width: 50px;
-  --step-height: 80px;
+  --step-width: 15px;
+  --step-height: 40px;
+  --font-size: calc(var(--step-height) - 10px);
+}
+
+@media screen and (min-width: 576px) {
+  :root {
+    --step-width: 25px;
+    --step-height: 40px;
+    --font-size: var(--step-height);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --step-width: 35px;
+    --step-height: 50px;
+    --font-size: var(--step-height);
+  }
 }
 
 * {
@@ -44,13 +61,14 @@ body {
   background: #5f686d;
   color: #ffffff;
   font-family: "Silkscreen", serif;
-  font-size: var(--step-height);
+  font-size: var(--font-size);
   padding-top: calc(var(--step-height) * 2);
 }
 
 button {
   background: transparent;
   border: none;
+  cursor: pointer;
   outline: none;
 }
 
@@ -59,7 +77,7 @@ input[type="number"] {
   border: none;
   color: #000000;
   font-family: "Silkscreen", serif;
-  font-size: var(--step-height);
+  font-size: var(--font-size);
   outline: none;
 }
 
@@ -93,7 +111,7 @@ input[type="number"] {
 }
 
 .toolbar button {
-  font-size: var(--step-height);
+  font-size: var(--font-size);
   margin-right: 10px;
 }
 

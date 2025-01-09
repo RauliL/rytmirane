@@ -1,20 +1,20 @@
 import { Howl } from "howler";
 
-export type SampleName = "hat" | "kick" | "snare";
+export type SampleName = "hi-hat" | "kick" | "snare";
 
 export const ALL_SAMPLE_NAMES: Readonly<SampleName[]> = [
   "kick",
-  "hat",
+  "hi-hat",
   "snare",
 ];
 
 const kick = new Howl({ src: ["kick.mp3"] });
-const hat = new Howl({ src: ["hat.mp3"] });
+const hat = new Howl({ src: ["hi-hat.mp3"] });
 const snare = new Howl({ src: ["snare.mp3"] });
 
 export const play = (sample: SampleName) => {
   switch (sample) {
-    case "hat":
+    case "hi-hat":
       hat.play();
       break;
 
@@ -30,7 +30,7 @@ export const play = (sample: SampleName) => {
 
 export const getIcon = (sample: SampleName): string => {
   switch (sample) {
-    case "hat":
+    case "hi-hat":
       return "🎩";
 
     case "kick":
