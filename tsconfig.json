@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "lib": ["DOM", "ESNext"],
+    "jsx": "react",
+    "jsxFactory": "p",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "strict": true,
     "target": "ES5"
   }

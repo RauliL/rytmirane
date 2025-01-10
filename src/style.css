@@ -1,39 +1,43 @@
 :root {
-  --gray-gradient-start: #525a5f;
-  --gray-gradient-end: #43494d;
-  --gray-on-gradient-start: #cfd8dd;
-  --gray-on-gradient-end: #a3adb0;
-
-  --gray-background: linear-gradient(
-    180deg,
-    var(--gray-gradient-start) 0%,
-    var(--gray-gradient-end) 100%
-  );
-  --gray-on-background: linear-gradient(
-    180deg,
-    var(--gray-on-gradient-start) 0%,
-    var(--gray-on-gradient-end) 100%
-  );
-
-  --red-gradient-start: #605253;
-  --red-gradient-end: #524446;
-  --red-on-gradient-start: #e1d0d1;
-  --red-on-gradient-end: #bba7a9;
-
-  --red-background: linear-gradient(
-    180deg,
-    var(--red-gradient-start) 0%,
-    var(--red-gradient-end) 100%
-  );
-  --red-on-background: linear-gradient(
-    180deg,
-    var(--red-on-gradient-start) 0%,
-    var(--red-on-gradient-end) 100%
-  );
-
-  --step-width: 15px;
+  --step-width: 20px;
   --step-height: 40px;
   --font-size: calc(var(--step-height) - 10px);
+
+  --led-color-off: #232323;
+  --led-color-on: #750000;
+
+  --gray-step-background-off: linear-gradient(
+    180deg,
+    #525a5f 0%,
+    var(--led-color-off) 15%,
+    #525a5f 20%,
+    #43494d 100%
+  );
+  --gray-step-background-on: linear-gradient(
+    180deg,
+    #cfd8dd 0%,
+    var(--led-color-on) 15%,
+    #cfd8dd 20%,
+    #a3adb0 100%
+  );
+  --red-step-background-off: linear-gradient(
+    180deg,
+    #605253 0%,
+    var(--led-color-off) 15%,
+    #605253 20%,
+    #524446 100%
+  );
+  --red-step-background-on: linear-gradient(
+    180deg,
+    #e1d0d1 0%,
+    var(--led-color-on) 15%,
+    #e1d0d1 20%,
+    #bba7a9 100%
+  );
+}
+
+.icon {
+  display: block;
 }
 
 @media screen and (min-width: 576px) {
@@ -41,6 +45,10 @@
     --step-width: 25px;
     --step-height: 40px;
     --font-size: var(--step-height);
+  }
+
+  .icon {
+    display: inline;
   }
 }
 
@@ -73,8 +81,9 @@ button {
 }
 
 input[type="number"] {
-  background: #7b9091;
-  border: none;
+  background: linear-gradient(180deg, #7b9091 0%, #596c6d 45%, #7b9091 65%);
+  border: 2px solid #000000;
+  border-radius: 5px;
   color: #000000;
   font-family: "Silkscreen", serif;
   font-size: var(--font-size);
@@ -135,10 +144,10 @@ input[type="number"] {
   &[data-index="9"],
   &[data-index="10"],
   &[data-index="11"] {
-    background: var(--gray-background);
+    background: var(--gray-step-background-off);
 
     &.on {
-      background: var(--gray-on-background);
+      background: var(--gray-step-background-on);
     }
   }
 
@@ -150,10 +159,10 @@ input[type="number"] {
   &[data-index="13"],
   &[data-index="14"],
   &[data-index="15"] {
-    background: var(--red-background);
+    background: var(--red-step-background-off);
 
     &.on {
-      background: var(--red-on-background);
+      background: var(--red-step-background-on);
     }
   }
 

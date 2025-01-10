@@ -15,54 +15,58 @@ window.addEventListener("load", () => {
 
   p.append(
     root,
-    p.div(
-      { class: "toolbar" },
-      p.button("▶️", {
-        id: "play-button",
-        "data-tooltip": "Play/pause",
-        onclick: function () {
+    <div class="toolbar">
+      <button
+        id="play-button"
+        data={{ tooltip: "Play/pause" }}
+        onclick={(ev: MouseEvent) => {
           if (pattern.isPlaying) {
             pattern.stop();
-            Reflect.set(this, "textContent", "▶️");
+            (ev.target as HTMLButtonElement).textContent = "▶️";
           } else {
             pattern.play();
-            Reflect.set(this, "textContent", "⏸️");
+            (ev.target as HTMLButtonElement).textContent = "⏸️";
           }
-        },
-      }),
-      p.button("🧹", {
-        "data-tooltip": "Clear",
-        onclick: function () {
-          pattern.clear();
-        },
-      }),
-      p.span("BPM:"),
-      p.input({
-        type: "number",
-        min: 1,
-        max: 300,
-        value: DEFAULT_BPM,
-        onchange: function () {
-          pattern.tempo = Reflect.get(this, "valueAsNumber");
-        },
-      }),
-    ),
+        }}
+      >
+        ▶️
+      </button>
+      <button data={{ tooltip: "Clear" }} onclick={() => pattern.clear()}>
+        🧹
+      </button>
+      <label for="bpm">BPM:</label>
+      <input
+        type="number"
+        id="bpm"
+        min={1}
+        max={300}
+        value={DEFAULT_BPM}
+        onchange={(ev: Event) => {
+          pattern.tempo = (ev.target as HTMLInputElement).valueAsNumber;
+        }}
+      />
+    </div>,
   );
 
   ALL_SAMPLE_NAMES.forEach((name) => {
-    const container = p.div(
-      p.span(getIcon(name), { class: "icon", "data-tooltip": name }),
-      {
-        class: "track",
-      },
+    const container = (
+      <div class="track">
+        <span class="icon" data={{ tooltip: name }}>
+          {getIcon(name)}
+        </span>
+      </div>
     );
 
     for (let i = 0; i < Pattern.SIZE; ++i) {
-      const button = p.button({ class: "step", "data-index": i });
+      const button = (
+        <button
+          class={["step", pattern.steps[name][i] ? "on" : null]
+            .filter((x) => !!x)
+            .join(" ")}
+          data={{ index: i }}
+        />
+      );
 
-      if (pattern.steps[name][i]) {
-        button.classList.add("on");
-      }
       button.addEventListener("click", () => {
         if (pattern.steps[name][i]) {
           pattern.steps[name][i] = false;

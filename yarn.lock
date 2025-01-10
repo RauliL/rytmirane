@@ -771,10 +771,10 @@ package-json-from-dist@^1.0.0:
   resolved "https://registry.yarnpkg.com/package-json-from-dist/-/package-json-from-dist-1.0.1.tgz#4f1471a010827a86f94cfd9b0727e36d267de505"
   integrity sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==
 
-pakertaja@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/pakertaja/-/pakertaja-1.2.2.tgz#fae58648673ee1cacc5d8579dbbf317e268287db"
-  integrity sha512-naL2C/3mHbdE/oMCozN1Ezp+yMCD/MBJupXxI0M/SfprDDv0DBFIptTC/puT6V+qj4zjCtsvPf4Zbz4fS9Hilw==
+pakertaja@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/pakertaja/-/pakertaja-1.3.3.tgz#97717556f2642df7d6ac4c1e9df42e639e2a80f0"
+  integrity sha512-/gxSUS+19qKC+gjBJ8mY0IcFntpKutwd8lAmEI0g26+DZwdlhgmIYXP70lmryJDluUzTIs2EkZxXRWdKFlTC8A==
 
 path-exists@^4.0.0:
   version "4.0.0"
